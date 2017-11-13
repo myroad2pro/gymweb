@@ -15,3 +15,31 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
+
+var ready = function () {
+    $(".dropdown").hover(
+        function () {
+            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+            $(this).toggleClass('open');
+        },
+        function () {
+            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+            $(this).toggleClass('open');
+        }
+    );
+
+    var $window = $(window);
+    // Function to handle changes to style classes based on window width
+    function checkWidth() {
+        if ($window.width() >= 768) {
+            $('.navbar-collapse').removeClass('in').addClass('collapse');
+        }
+    }
+    // Execute on load
+    checkWidth();
+    // Bind event listener
+    $(window).resize(checkWidth);
+}
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);

@@ -1,29 +1,268 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
+<div class="jain_container">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container1 container-fluid">
+            <div class="navbar-header col-sm-2">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%= link_to image_tag('logo.jpg', class: "img-responsive"), root_path, class: "navbar-brand" %>
+            </div>
+            <div class="navbar-body col-sm-10">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="col-sm-12">
+                        <div class="col-sm-8">
+                            <%= form_tag products_path, :method=>"get", class: "form-horizontal form-horizontal_x" do %>
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <%= text_field_tag :search, params[:search], class: "form-control", id: "pwd", placeholder: "Search for a product" %>
+                                    </div>
+                                    <div class="col-sm-2" style="padding-top:0;">
+                                        <%= submit_tag "Search", class: "btn btn-default" %>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <% if logged_in? %>
+                                <li><%= link_to "Users", '#' %></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Account <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                    <li><%= link_to "Profile", current_user %></li>
+                                    <li><%= link_to "Settings", '#' %></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <%= link_to "Log out", logout_path, method: :delete %>
+                                    </li>
+                                    </ul>
+                                </li>
+                            <% else %>
+                                <li><%= link_to "SIGN UP", signup_path %></li>
+                                <li><%= link_to "LOG IN", login_path %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown mega-dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">MEN
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu mega-dropdown-menu">
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">SHOP BY CATEGORY</li>
+                                            <li>
+                                                <a href="#">All Products</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">T-Shirts & Tops</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Hoddies & Jacket</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Tanks</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Bottoms</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shorts</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Underwear & Socks</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">SHOP BY COLLECTION</li>
+                                            <li>
+                                                <a href="#">Ark</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Fallout</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Legacy</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Seamless</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">DEALS</li>
+                                            <li>
+                                                <a href="#">Less than 30%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">30% - 50%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">50% - 70%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">More than 70%</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown mega-dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">WOMEN
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu mega-dropdown-menu">
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">SHOP BY CATEGORY</li>
+                                            <li>
+                                                <a href="#">All Products</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">T-Shirts & Tops</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Hoddies & Jacket</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Sports Bra</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Bottoms & Legging</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shorts</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Underwear & Socks</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">SHOP BY COLLECTION</li>
+                                            <li>
+                                                <a href="#">Fit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Flex</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Legacy</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Seamless</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">DEALS</li>
+                                            <li>
+                                                <a href="#">Less than 30%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">30% - 50%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">50% - 70%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">More than 70%</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown mega-dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">EQUIPMENT
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu mega-dropdown-menu">
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">SHOP BY CATEGORY</li>
+                                            <li>
+                                                <a href="#">All Products</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Cardio Equipments</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Strength Equipments</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Studio Equipments</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Functional Training</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Weight</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Mats, Flooring & Banners</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">SHOP BY COLLECTION</li>
+                                            <li>
+                                                <a href="#">Reebok</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">V Fit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Lonsdale</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Roma</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <ul>
+                                            <li class="dropdown-header">DEALS</li>
+                                            <li>
+                                                <a href="#">Less than 30%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">30% - 50%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">50% - 70%</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">More than 70%</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">ACCESSORIES</a>
+                            </li>
+                            <li>
+                                <a href="#">STORES</a>
+                            </li>
+                            <li>
+                                <a href="#">CONTACT</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
-  </div>
-</header>
+</div>
